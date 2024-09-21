@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <title>Modern Snake Game</title>
     <link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<center><h1> Classic Snake Game </h1></center>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="score">Score: 0</div>
-    <button id="restartBtn" style="display: none;">Restart</button>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="score">Score: 0</div>
+        <button id="restartBtn" class="btn" style="display: none;">Restart</button>
+    </div>
     
     <div class="footer-text">
-        <h2>Powered By Haque Gaming :3</h2>
+        <h2>Powered By Haque Gaming</h2>
     </div>
 
     <script src="script.js"></script>
