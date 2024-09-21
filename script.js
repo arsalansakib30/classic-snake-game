@@ -8,6 +8,12 @@ let food;
 let score;
 let gameInterval;
 
+// Touch start and end coordinates for swipe detection
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
 function initializeGame() {
     snake = [{ x: box * 5, y: box * 5 }];
     direction = 'RIGHT';
@@ -78,18 +84,35 @@ function collision(head, array) {
     return false;
 }
 
-// Mobile controls
-canvas.addEventListener('touchstart', function (event) {
-    const touchX = event.touches[0].clientX;
-    const touchY = event.touches[0].clientY;
-
-    const canvasRect = canvas.getBoundingClientRect();
-    const x = touchX - canvasRect.left;
-    const y = touchY - canvasRect.top;
-
-    if (x < canvas.width / 2) {
-        changeDirection({ keyCode: 37 }); // Left
-    } else {
-        changeDirection({ keyCode: 39 }); // Right
-    }
+// Swipe detection for mobile devices
+canvas.addEventListener('touchstart', function(event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
 });
+
+canvas.addEventListener('touchend', function(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    touchEndY = event.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Horizontal swipe
+        if (deltaX > 0 && direction !== 'LEFT') {
+            direction = 'RIGHT';
+        } else if (deltaX < 0 && direction !== 'RIGHT') {
+            direction = 'LEFT';
+        }
+    } else {
+        // Vertical swipe
+        if (deltaY > 0 && direction !== 'UP') {
+            direction = 'DOWN';
+        } else if (deltaY < 0 && direction !== 'DOWN') {
+            direction = 'UP';
+        }
+    }
+}
