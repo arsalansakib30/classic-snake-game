@@ -1,33 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Modern gradient */
+    font-family: 'Raleway', sans-serif; /* Modern font */
+    color: white;
+}
+
+.game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #222;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    height: 100vh;
-    margin: 0;
 }
 
 canvas {
-    border: 1px solid white;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #333; /* Dark background for the game */
 }
 
 #score {
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 20px;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50; /* Button color */
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049; /* Button hover effect */
 }
 
 .footer-text {
+    margin-top: 30px;
     text-align: center;
-    font-family: 'Raleway', cursive; /* Use a stylish font */
     font-style: italic;
-    color: #fff; /* Change color as needed */
-    margin-top: 20px; /* Add some spacing if needed */
+    color: #fff;
 }
 
-#score {
-    margin-top: 10px;
-    font-size: 20px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #score {
+        font-size: 16px;
+    }
+    .btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
