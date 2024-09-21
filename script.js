@@ -8,7 +8,6 @@ let food;
 let score;
 let gameInterval;
 
-// Touch start and end coordinates for swipe detection
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
@@ -37,15 +36,15 @@ function changeDirection(event) {
 }
 
 function draw() {
-    ctx.fillStyle = '#222';
+    ctx.fillStyle = '#333';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = i === 0 ? 'green' : 'white';
+        ctx.fillStyle = i === 0 ? '#4caf50' : 'white'; // Snake color
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
 
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'red'; // Food color
     ctx.fillRect(food.x, food.y, box, box);
 
     let snakeX = snake[0].x;
