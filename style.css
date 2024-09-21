@@ -5,7 +5,7 @@ body {
     justify-content: center;
     background-color: #222;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
     height: 100vh;
     margin: 0;
 }
@@ -21,7 +21,7 @@ canvas {
 
 .footer-text {
     text-align: center;
-    font-family: 'Caveat', cursive; /* Use a stylish font */
+    font-family: 'Raleway', cursive; /* Use a stylish font */
     font-style: italic;
     color: #fff; /* Change color as needed */
     margin-top: 20px; /* Add some spacing if needed */
